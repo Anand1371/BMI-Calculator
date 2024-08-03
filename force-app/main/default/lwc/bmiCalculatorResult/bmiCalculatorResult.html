@@ -1,0 +1,33 @@
+<template>
+    <!-- Row 1 Heading-->
+    <lightning-layout class="card-bg header-border-radius" multiple-rows>
+        <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="12">
+            <div class="slds-align_absolute-center slds-p-vertical_small bmi-title">BMI CALCULATOR</div>
+        </lightning-layout-item>
+    </lightning-layout>
+
+    <!-- Row 2 Result-->
+    <lightning-layout class="screen-bg justify-content-center" multiple-rows>
+        <lightning-layout-item class="slds-m-vertical_medium card-bg result-border-radius" size="10" small-device-size="10" medium-device-size="10" large-device-size="10">
+            <lightning-layout multiple-rows>
+                <lightning-layout-item class="slds-m-vertical_medium" size="12" small-device-size="12" medium-device-size="12" large-device-size="12">
+                    <div class="custom-box result-Status">
+                        {result.bmiStatus}
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item class="slds-m-vertical_medium custom-box" size="12" small-device-size="12" medium-device-size="12" large-device-size="12">
+                    <div class="custom-box result-BMI-Value">
+                        {result.bmiValue}
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+        </lightning-layout-item>
+    </lightning-layout>
+
+    <!-- Row 3 ReCalculate-->
+    <lightning-layout class="calculate-bg calculate-border-radius" multiple-rows>
+        <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="12">
+            <div class="slds-align_absolute-center slds-p-vertical_small bmi-title" onclick={bmiReCalculate}>RE-CALCULATE</div>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

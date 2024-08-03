@@ -1,0 +1,67 @@
+<template>
+    <!-- Home Page-->
+    <template lwc:if={showHome}>
+        <!-- Row 1 Heading-->
+        <lightning-layout class="card-bg header-border-radius" multiple-rows>
+            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="12">
+                <div class="slds-align_absolute-center slds-p-vertical_small bmi-title">BMI CALCULATOR</div>
+            </lightning-layout-item>
+        </lightning-layout>
+        <!-- Main Selection-->
+        <lightning-layout multiple-rows class="justify-content-center screen-bg">
+            <!-- Row 2 Gender Selection-->
+            <lightning-layout-item class="slds-m-vertical_medium" size="9" small-device-size="9" medium-device-size="9" large-device-size="9">
+                <lightning-layout multiple-rows class="justify-content-space-between screen-bg">
+                    <lightning-layout-item class="card-bg card-border-radius gender-card" lwc:ref="male" size="12" small-device-size="5" medium-device-size="5" large-device-size="5">
+                        <div class="custom-box slds-p-vertical_medium" data-value="male" onclick={handleGenerClick}>
+                            <div class="genderIcon">
+                                <img src={maleIcon}></img>
+                            </div>
+                            <div class="bmi-sub-titles bmi-sub-titles-color slds-m-vertical_small" lwc:ref="maleText">MALE</div>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item class="card-bg card-border-radius gender-card" lwc:ref="female" size="12" small-device-size="5" medium-device-size="5" large-device-size="5">
+                        <div class="custom-box slds-p-vertical_medium" data-value="female" onclick={handleGenerClick}>
+                            <div class="genderIcon">
+                                <img src={femaleIcon}></img>
+                            </div>
+                            <div class="bmi-sub-titles bmi-sub-titles-color slds-m-vertical_small" lwc:ref="femaleText">FEMALE</div>
+                        </div>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </lightning-layout-item>
+            <!-- Row 3 Height Selection-->
+            <lightning-layout-item class="slds-m-vertical_medium card-bg card-border-radius" size="9" small-device-size="9" medium-device-size="9" large-device-size="9">
+                <div class="custom-box">
+                    <div class="bmi-sub-titles bmi-sub-titles-color slds-m-top_small">HEIGHT</div>
+                    <div class="units-container">
+                        <h1 class="bmi-sub-titles bmi-sub-values-color font-bold-size">{height}</h1>
+                        <div class="bmi-sub-titles bmi-sub-titles-color units">cm</div>
+                    </div>
+                    <input type="range" min="0" max="271" value={height} class="slider validate slds-m-around_medium" onchange={heightChangeHandler}>
+                </div>
+            </lightning-layout-item>
+            <!-- Row 4 Weight and Age Selection-->
+            <lightning-layout-item class="slds-m-vertical_medium card-bg card-border-radius" size="9" small-device-size="9" medium-device-size="9" large-device-size="9">
+                <div class="custom-box">
+                    <div class="bmi-sub-titles bmi-sub-titles-color slds-m-top_small">WEIGHT</div>
+                    <div class="units-container">
+                        <h1 class="bmi-sub-titles bmi-sub-values-color font-bold-size">{weight}</h1>
+                        <div class="bmi-sub-titles bmi-sub-titles-color units">kg</div>
+                    </div>
+                    <input type="range" min="0" max="650" value={weight} class="slider validate slds-m-around_medium" onchange={weightChangeHandler}>
+                </div>
+            </lightning-layout-item>
+        </lightning-layout>
+        <!-- Row 5 Calculate Button-->
+        <lightning-layout multiple-rows class="calculate-bg calculate-border-radius">
+            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="12">
+                <div class="slds-align_absolute-center slds-p-vertical_small bmi-title" onclick={bmiCalculate}>CALCULATE YOUR BMI</div>
+            </lightning-layout-item>
+        </lightning-layout>
+    </template>
+    <!-- Result Page-->
+    <template lwc:elseif={showResult}>
+        <c-bmi-calculator-result result={result} onshowhome={recalculateBmi}></c-bmi-calculator-result>
+    </template>
+</template>

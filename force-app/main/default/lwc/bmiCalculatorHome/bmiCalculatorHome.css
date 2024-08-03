@@ -1,0 +1,125 @@
+:host{
+    --white : #FFFFFF;
+    --red : #F10606;
+    --black : #1A1F38;
+    --orange : #FF3755;
+    --gray : #808080;
+}
+
+.custom-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.units-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.justify-content-center{
+    justify-content: center;
+}
+
+.justify-content-space-between{
+    justify-content: space-between;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 90%;
+    height: 3px;
+    background: var(--white);
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #F10606;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #F10606;
+    cursor: pointer;
+}
+
+.card-bg{
+    background-color: #1A1F38;
+}
+
+.screen-bg{
+    background-color: #0A0E21;
+}
+
+.calculate-bg{
+    background-color: #FF3755;
+}
+
+.bmi-title{
+    font-family: sans-serif;
+    font-size: 35px;
+    font-weight: bold;
+    color: var(--white);
+}
+
+.bmi-sub-titles{
+    font-family: sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.bmi-sub-titles-color{
+    color: var(--gray);
+}
+
+.bmi-sub-values-color{
+    color: var(--white);
+}
+
+.card-border-radius{
+    border-radius: 15px;
+}
+
+.font-bold-size{
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.gender-card:hover{
+    border: solid var(--white);
+    cursor: pointer;
+}
+
+.gender-selected{
+    border: solid var(--white);
+}
+
+.header-border-radius{
+    border-radius: 14px 14px 0px 0px;
+}
+
+.calculate-border-radius{
+    border-radius: 0px 0px 14px 14px;
+}
+
+.units{
+    padding-top: 8px;
+}
